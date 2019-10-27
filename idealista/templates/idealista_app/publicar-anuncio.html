@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+
+  <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/8593a80e63.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+    
+        <div class="footer-copyright text-left py-1 bg-idealista">
+                <img src="{% static "img/logo.svg" %}" width="300px">
+        </div>
+        <div class="tabbable">
+                <ul class="nav nav-tabs wizard">
+                  <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false">1.Datos básicos</a></li>
+                  <li><a href="#w4" data-toggle="tab" aria-expanded="false">2.Detalles</a></li>
+                  <li><a href="#stateinfo" data-toggle="tab" aria-expanded="false">3.Fotos</a></li>              
+                </ul>
+                <br>
+                <br>
+                <br>
+        <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h4>Poner tu anuncio de particular</h3><br>
+            <h4><strong>Elige el tipo de inmueble</strong></h2>
+            <select class="form-control rounded-0"style="width:330px;">
+                    <option>Selecciona...</option>
+                    <option>Obra nueva</option>
+                    <option>Viviendas</option>
+                    <option>Habitación</option>
+                    <option>Oficinas</option>
+                    <option>Locales o naves</option>
+                    <option>Garajes</option>
+                    <option>Trasteros</option>
+                    <option>Edificios</option>
+                    <option>Terrenos</option>
+                  </select>
+                  <br>
+            <h4><strong>Operación</strong></h4>
+            <br>
+            <input type="radio" name="radio-compartir" value="bool">
+            <label class="form-check-label" for="radio-compartir">
+              Venta
+            </label>
+            <br>
+            <input type="radio" name="radio-compartir" value="bool">
+            <label class="form-check-label" for="radio-compartir">
+              Alquiler
+              
+            </label><br>
+            <br>
+            <h4><strong>Localización del inmueble</strong></h4>
+            No mostraremos la puerta en tu anuncio<br>
+            <br>
+            Localidad
+            <input type="text" class="form-control rounded-0" id="location" aria-describedby="locationHelp" style="width: 330px;">
+            <br>
+            Nombre de la vía
+            <input type="text" class="form-control rounded-0" id="location" aria-describedby="locationHelp" style="width: 330px;">
+            <br>
+            Número de vía
+            <input type="text" class="form-control rounded-0" id="location" aria-describedby="locationHelp" style="width: 330px;">
+            <br>
+            ¿Quieres ocultar la calle y el número?
+            <br>
+           
+        <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+                    <label class="form-check-label" for="materialUnchecked">Ocultar por 9,90 €,¿por qué?</label><br>
+
+                </div>
+                <br>
+                
+                <button type="button" class="btnideal btn-default" style="width: 200px;"><strong>Comprobar dirección</strong></button>
+
+
+
+        </div>
+        <div class="col-6 text-justify">
+               
+                  <div class="row ">
+                    <div class="col-auto">
+                        Ten las fotos a mano. Si no las tienes, podrás añadirlas más tarde.Sin fotos no tendrás resultados.<br>
+                        <br>
+                        Te regalamos tus primeros dos anuncios para que pruebes nuestro servicio. Puedes publicar gratis pisos, chalets, garajes, parcelas, locales, etc hasta que lo vendas o alquiles.<br>
+                        <br>
+                        Las habitaciones en piso compartido son siempre gratis, no suman en el número de anuncios que te regalamos.
+                        <br>
+                        Para poder mantener nuestra calidad de servicio necesitamos cobrar en estos casos: <br>
+                        <strong>·</strong> anunciantes con más de dos inmuebles<br>
+                        <strong>·</strong> anuncios de inmuebles duplicados.<br>
+                        <strong>·</strong> inmuebles en venta de más de un millón de euros<br>
+                        <strong>·</strong> inmuebles en alquiler de más de 3.000 €/mes<br>
+                        ¿Eres profesional inmobiliario? Conoce nuestras ventajas para profesionales
+                    </div>
+                  </div>    
+        </div>
+    </div>
+        
+        </div>
+    </div>
+
+    </div>
+    <br><br><br><br><br>
+    <footer class="d-flex flex-column footer font-small">
+      <div class="footer-copyright text-center py-3 bg-light">
+        <a>Oportunista Copyright &copy; 2019-2019</a>
+      </div>
+    </footer>
+  </body>
+  
+
+
+</html>

@@ -21,5 +21,16 @@ urlpatterns = [
         regex=r'^login/',
         view=views.login,
         name='login'
+    ),
+    url(
+        regex=r'^logout/',
+        view=views.logout,
+        name='logout'
+    ),
+    url(
+        regex=r'^publicar-anuncio',
+        view=views.publicaranuncio,
+        name='publicar-anuncio'
+        
     )
 ]
