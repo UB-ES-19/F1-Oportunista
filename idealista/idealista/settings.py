@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'idealista.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'oportunistadb',
+        'USER': 'oportunista',
+        'PASSWORD': '0p0rtunistA',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
