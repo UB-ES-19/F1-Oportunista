@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'idealista.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oportunistadb',
+        'NAME': 'oportunistaDB',
         'USER': 'oportunista',
         'PASSWORD': '0p0rtunistA',
         'HOST': 'localhost',
