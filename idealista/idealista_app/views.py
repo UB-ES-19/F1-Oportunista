@@ -44,7 +44,7 @@ def submit(request):
     return render(request, 'idealista_app/submit.html')
 
 def publicaranuncio(request):
-    return render(request, 'idealista_app/publicar-anuncio.html')
+    return render(request, 'idealista_app/publicar-anuncio2.html')
 
 def login(request):
     if request.method == 'POST':

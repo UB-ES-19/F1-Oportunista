@@ -16,12 +16,7 @@
         <div class="footer-copyright text-left py-1 bg-idealista">
                 <img src="{% static "img/logo.svg" %}" width="300px">
         </div>
-        <div class="tabbable">
-                <ul class="nav nav-tabs wizard">
-                  <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false">1.Datos básicos</a></li>
-                  <li><a href="#w4" data-toggle="tab" aria-expanded="false">2.Detalles</a></li>
-                  <li><a href="#stateinfo" data-toggle="tab" aria-expanded="false">3.Fotos</a></li>              
-                </ul>
+      
                 <br>
                 <br>
                 <br>
@@ -79,10 +74,59 @@
                 <br>
                 
                 <button type="button" class="btnideal btn-default" style="width: 200px;"><strong>Comprobar dirección</strong></button>
+                <br>
+                <br>
+                <h5>Elige el tipo de inmueble</h5>
+                  <select class="form-control rounded-0"style="width:330px;">
+                          <option>Selecciona</option>
+                          <option>Semi-sótano</option>
+                          <option>Bajo</option>
+                          <option>Entreplanta</option>
+                          <option>Planta 1º</option>
+                          <option>Planta 2º</option>
+                          <option>Planta 3º</option>
+                          <option>Planta 4º</option>
+                          <option>Planta 5º</option>
+                          <option>Planta 6º</option>
+                          <option>Planta 7º</option>
+                          <option>Planta 8º</option>
+                          <option>Planta 9º</option>
+                          <option>Planta 10º</option>
+                          <option>Planta 11º</option>
+                          <option>Planta 12º</option>
+                          <option>Planta 13º</option>
+                        </select>
+                        <br>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="materialUnchecked">
+                          <label class="form-check-label" for="materialUnchecked">Es la última planta del bloque</label><br>
+                          <br>
+                        </div>
 
-
-
-        </div>
+                          <h5>Puerta</h5>
+                          <select class="form-control rounded-0"style="width:330px;">
+                                  <option>Selecciona</option>
+                                  <option>Letra(A,B,C....)</option>
+                                  <option>Número(1,2,3,....</option>
+                                  <option>Puerta única</option>
+                                  <option>Izquierda</option>
+                                  <option>Derecha</option>
+                                  <option>Exterior</option>
+                                  <option>Exterior Izquierda</option>
+                                  <option>Exterior derecha</option>
+                                  <option>Interior 6º</option>
+                                  <option>Interior izquierda</option>
+                                  <option>Interior derecha</option>
+                                  <option>Centro</option>
+                                  <option>Centro izquierda</option>
+                                  <option>Centro derecha</option>
+        
+                                </select>
+                
+      
+                      </div>
+    
+        
         <div class="col-6 text-justify">
                
                   <div class="row ">
@@ -102,11 +146,9 @@
                     </div>
                   </div>    
         </div>
+    </div>    
     </div>
-        
-        </div>
     </div>
-
     </div>
     <br><br><br><br><br>
     <footer class="d-flex flex-column footer font-small">
