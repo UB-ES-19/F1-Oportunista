@@ -28,7 +28,7 @@ urlpatterns = [
         name='logout'
     ),
     url(
-        regex=r'^publicar-anuncio',
+        regex=r'^publicar-anuncio2',
         view=views.publicaranuncio,
         name='publicar-anuncio'
         

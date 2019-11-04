@@ -7210,4 +7210,7 @@ a.text-dark:hover, a.text-dark:focus {
     span.nmbr {
       display: block;
     }
+    .avatar-pic {
+      width: 150px;
+      }
   }
