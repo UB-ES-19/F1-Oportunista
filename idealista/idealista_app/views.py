@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 
 from .forms import LoginForm, RegisterForm
 
@@ -60,10 +61,6 @@ def login(request):
         form = LoginForm()
     return render(request, 'idealista_app/login.html', {'form': form})
 
-
+@login_required
 def profile(request):
-    if request.user.is_authenticated:
-        profile = request.user.userprofile
-        return render(request, 'idealista_app/home.html', {'profile': profile})
-    else:
-        return HttpResponse('Unauthorized', status=401)
+    return render(request, 'idealista_app/profile.html')
