@@ -16,11 +16,19 @@ class property_type(models.Model):
     def __str__(self):
         return self.name
 
+class province(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100, unique=True)
+
+class comarca(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100, unique=True)
+    province = models.ForeignKey(province, on_delete=models.CASCADE)
 
 class location(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, unique=True)
-
+    comarca = models.ForeignKey(comarca, on_delete=models.CASCADE)
 
 class property(models.Model):
     id = models.AutoField(primary_key=True)
