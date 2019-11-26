@@ -4,13 +4,9 @@
   "description": "Idealista clone",
   "main": "index.js",
   "dependencies": {
-    "node-sass": "^4.12.0",
-    "bootstrap": "^4.3.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "scss": "node-sass scss -o idealista/static/css",
-    "js": "cp node_modules/bootstrap/dist/js/bootstrap.js idealista/static/js"
+    "bootstrap": "^4.3.1",
+    "jquery": "1.9.1",
+    "popper.js": "^1.14.7"
   },
   "repository": {
     "type": "git",

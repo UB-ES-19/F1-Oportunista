@@ -378,3 +378,8 @@ n
 # End of https://www.gitignore.io/api/npm
 .vscode/**
 .idea/
+
+# Ignore things that are built
+idealista/static/css
+idealista/static/js
+

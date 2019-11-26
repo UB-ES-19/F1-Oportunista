@@ -5,10 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 mypy = "*"
+autopep8 = "*"
 
 [packages]
 django = "==2.2.5"
 django-widget-tweaks = "*"
+libsass = "*"
 
 [requires]
 

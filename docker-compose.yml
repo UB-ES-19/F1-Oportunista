@@ -3,9 +3,10 @@ version: '3'
 services: 
   web:
     build: .
-    command: sh -c "npm run postinstall && npm run all && python idealista/manage.py makemigrations && python idealista/manage.py migrate && python idealista/manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python build.py && python idealista/manage.py makemigrations && python idealista/manage.py migrate && python idealista/manage.py runserver 0.0.0.0:8000"
     container_name: web
     volumes:
       - .:/web
     ports:
       - "8000:8000"
+
