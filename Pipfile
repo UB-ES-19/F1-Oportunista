@@ -11,6 +11,8 @@ autopep8 = "*"
 django = "==2.2.5"
 django-widget-tweaks = "*"
 libsass = "*"
+mysqlclient = "==1.3.13"
+django-mysql = "==2.2.0"
 
 [requires]
 
