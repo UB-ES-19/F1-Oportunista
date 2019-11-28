@@ -8,8 +8,8 @@ from .forms import LoginForm, RegisterForm
 from .dummies import add_user, users
 # Create your views here.
 
-def placeholder(request):
-    return render(request, 'idealista_app/placeholder.html')
+def tusAnuncios(request):
+    return render(request, 'idealista_app/tus-anuncios.html')
 
 def register_user(request):
     if request.method == 'POST':

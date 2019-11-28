@@ -28,8 +28,8 @@ urlpatterns = [
         name='logout'
     ),
         url(
-        regex=r'^placeholder/',
-        view=views.placeholder,
-        name='logout'
+        regex=r'^tus-anuncios/',
+        view=views.tusAnuncios,
+        name='tusanuncios'
     ),
 ]
