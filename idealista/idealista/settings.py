@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'oportunista',
         'USER': 'root',
         'PASSWORD': 'password',  # well maybe change this
-        'HOST':  'localhost',
+        'HOST':  'mysql',
         'PORT': '3306',
     }
 }
