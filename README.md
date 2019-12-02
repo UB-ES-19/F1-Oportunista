@@ -8,7 +8,7 @@ Idealista project's repository
 This is the preferred building method.
 
 ```bash
-docker-compose build    # build project
+docker build -t oportunista .    # build project
 docker-compose up       # loads server
 ```
 

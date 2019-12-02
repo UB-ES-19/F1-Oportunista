@@ -9,7 +9,7 @@ SCSS_PATH = os.path.join('scss')
 
 BOOTSTRAP_JS = 'node_modules/bootstrap/dist/js/bootstrap.js'
 JS_PATH = 'idealista/static/js'
-
+DJANGO_FILE = 'idealista/manage.py'
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -38,6 +38,10 @@ def build_js(input_folder=CSS_PATH):
     print('Building js...', end='')
     shutil.copy(BOOTSTRAP_JS, JS_PATH)
     print('DONE')
+
+
+def run_django(args):
+    os.
 
 
 if not args.no_css:

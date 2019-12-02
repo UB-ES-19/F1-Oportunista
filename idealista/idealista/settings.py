@@ -89,8 +89,8 @@ DATABASES = {
         'NAME': 'oportunista',
         'USER': 'root',
         'PASSWORD': 'password',  # well maybe change this
-        'HOST': 'db',
-        'PORT': 3306,
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
