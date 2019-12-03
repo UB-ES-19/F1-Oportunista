@@ -1,17 +1,40 @@
 # F1-Idealista
 Idealista project's repository
 
-# Building the project
+# How to use docker
 
-## Docker
+### Requirements
 
-This is the preferred building method.
++ docker
++ docker-compose
+
+### Building
+
+Use
 
 ```bash
-docker-compose build    # build project
-docker-compose up       # loads server
+docker-compose build
 ```
 
-Notice that the server will load by default on `localhost:8000` and the database `localhost:3306`.
+### Start server
 
-**NOTE:** For some reason it only works with `docker-compose up` with a command that does pretty much everything but in the future it should allow for `docker-compose run dev <cmd>` for an arbitrary command.
+Use
+
+```bash
+docker-compose up -d # loads server at http://127.0.0.1:8000/
+```
+
+Somehow the server can start before the database. If it doesn't show simply execute `docker-compose up -d` again. The first time a server starts it might require to applay migrations or build assets. Read next section to see how to do that
+
+### Interact with django
+
+```bash
+docker-compose run web <cmd>
+```
+
+Examples:
+
+```bash
+docker-compose run web python idealista/manage.py migrate # migrate database
+docker-compose run web python idealista/manage.py makeassets # build assets
+```
