@@ -79,7 +79,7 @@ class Property(models.Model):
     city = models.ForeignKey(Location, on_delete=models.DO_NOTHING)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=9)
-    photo = models.ImageField(max_length=200)
+    photo = models.ImageField(max_length=850)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)

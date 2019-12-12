@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from .models import PropertyType, State, Province, Location, Property, PropertyPics
+from .models import OperationType, PropertyType, State, Province, Location, Property, PropertyPics
 
 
 from .forms import LoginForm, RegisterForm, ChangePasswordForm, PropertyForm
@@ -41,9 +41,11 @@ def register_user(request):
 
 def homePage(request):
     if request.method == 'GET':
+        type_operation = OperationType.objects.filter(id__gt=0)
         type_properties = PropertyType.objects.filter(id__gt=0)
         states = State.objects.filter(id__gt=0)
         context = {
+            'type_operations': type_operation,
             'type_properties': type_properties,
             'states': states,
         }
