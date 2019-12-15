@@ -111,8 +111,18 @@ def myposts(request):
             'properties_user': properties_user,
         }
         return render(request, 'idealista_app/profile/tus-anuncios.html', context)
+    elif request.method == 'POST':
+        Property.objects.get(id=request.POST['deletePost']).delete()
+        user = request.user.id
+        properties_user = Property.objects.filter(user=user)
+        context = {
+            'properties_user': properties_user,
+        }
+        return render(request, 'idealista_app/profile/tus-anuncios.html', context)
     else:
         return render(request, 'idealista_app/profile/profile.html')
+
+
 
 
 def posts(request, type="", state="", province="", location=""):

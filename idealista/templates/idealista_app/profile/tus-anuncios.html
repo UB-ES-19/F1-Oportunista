@@ -22,7 +22,8 @@
     <div class="container">
 
         {% for propietat in properties_user %}
-        <form class="bg-light px-1">
+        <form method="POST" class="bg-light px-1">
+            {% csrf_token %}
          <br>
          <br>
 
@@ -34,8 +35,7 @@
 
 <br>
 
-                    <button type="button" class="btn btn-danger">Eliminar post <span class="glyphicon glyphicon-remove-circle"></span></button>                    
-
+                    <button class="btn btn-danger" name="deletePost" value={{propietat.id}}>Eliminar post <span class="glyphicon glyphicon-remove-circle"></span></button>
                   </div>
 
 
