@@ -101,7 +101,6 @@ def publicarAnuncio(request):
         else:
             pass  # print(form.errors)
     else:
-        print('No es POST')
         form = PropertyForm(request.user)
     return render(request, 'idealista_app/publicar-anuncio.html', {'form': form})
 
