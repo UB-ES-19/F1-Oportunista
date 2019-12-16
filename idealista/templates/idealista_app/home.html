@@ -119,64 +119,16 @@
       </div>
       <div class="col-4">
         <div class="row">
-          <button class="btn btn-secondary btn-block rounded-0" type="submit">
+          <a href="{% url 'idealista_app:publicarAnuncio' %}" class="btn btn-secondary btn-block rounded-0" type="submit">
             <strong>Poner anuncio</strong>
-          </button>
+          </a>
 
         </div>
 
       </div>
     </div>
 
-    <div class="row py-2 px-3">
-      <form id="busqueda">
-        <div class="row">
-          <div class="col">
-            <h5> <strong>Búsqueda por texto libre</strong></h5>
-          </div>
-        </div>
 
-        <div class="row justify-content-start">
-          {% for type in type_properties %}
-          <div class="form-group col-auto">
-            <input type="radio" name="radio-compartir" value="bool">
-            <label class="form-check-label" for="radio-compartir">
-              {{type.name}}
-            </label>
-          </div>
-          {% endfor %}
-        </div>
-
-        <div class="row">
-          <div class="col-4">
-            <select class="form-control">
-              <option>Selecciona...</option>
-              <option>Obra nueva</option>
-              <option>Viviendas</option>
-              <option>Habitación</option>
-              <option>Oficinas</option>
-              <option>Locales o naves</option>
-              <option>Garajes</option>
-              <option>Trasteros</option>
-              <option>Edificios</option>
-              <option>Terrenos</option>
-            </select>
-          </div>
-
-          <div class="col-6">
-            <input type="text" class="form-control" id="location" aria-describedby="locationHelp"
-              placeholder="Escribe dónde buscas">
-            <small id="location" class="form-text text-muted">
-              También puedes buscar por característica,teléfono...
-            </small>
-          </div>
-
-          <div class="col-2">
-            <button class="btn btn-light" type="submit"><strong>Buscar</strong></button>
-          </div>
-        </div>
-      </form>
-    </div>
   </div>
 
   </div>

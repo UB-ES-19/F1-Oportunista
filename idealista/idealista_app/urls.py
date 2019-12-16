@@ -39,6 +39,11 @@ urlpatterns = [
         name='publicarAnuncio'
     ),
     url(
+        regex=r'^faqs/',
+        view=views.faqs,
+        name='faqs'
+    ),
+    url(
         regex=r'^profile/',
         view=views.profile,
         name='profile'

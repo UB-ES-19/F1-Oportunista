@@ -60,6 +60,8 @@ def logout(request):
 def submit(request):
     return render(request, 'idealista_app/submit.html')
 
+def faqs(request):
+    return render(request, 'idealista_app/faqs.html')
 
 @login_required
 def publicarAnuncio(request):
