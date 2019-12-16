@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from .models import PropertyType, State, Province, Location, Property, PropertyPics
+from .models import OperationType, PropertyType, State, Province, Location, Property, PropertyPics
 
 
 from .forms import LoginForm, RegisterForm, ChangePasswordForm, PropertyForm
@@ -41,9 +41,11 @@ def register_user(request):
 
 def homePage(request):
     if request.method == 'GET':
+        type_operation = OperationType.objects.filter(id__gt=0)
         type_properties = PropertyType.objects.filter(id__gt=0)
         states = State.objects.filter(id__gt=0)
         context = {
+            'type_operations': type_operation,
             'type_properties': type_properties,
             'states': states,
         }
@@ -109,8 +111,18 @@ def myposts(request):
             'properties_user': properties_user,
         }
         return render(request, 'idealista_app/profile/tus-anuncios.html', context)
+    elif request.method == 'POST':
+        Property.objects.get(id=request.POST['deletePost']).delete()
+        user = request.user.id
+        properties_user = Property.objects.filter(user=user)
+        context = {
+            'properties_user': properties_user,
+        }
+        return render(request, 'idealista_app/profile/tus-anuncios.html', context)
     else:
         return render(request, 'idealista_app/profile/profile.html')
+
+
 
 
 def posts(request, type="", state="", province="", location=""):
