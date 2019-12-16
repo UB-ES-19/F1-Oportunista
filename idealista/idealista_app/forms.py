@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 from .dummies import add_user, user_exists
 from .models import *
+from cloudinary.forms import CloudinaryJsFileField, CloudinaryUnsignedJsFileField
+from cloudinary.compat import to_bytes
+import cloudinary, hashlib
 
 
 class LoginForm(forms.Form):
@@ -117,6 +120,7 @@ class PropertyForm(forms.Form):
         label='Número de teléfono*', max_value=999999999, min_value=600000000)
 
     photo = forms.ImageField(label="Foto del inmueble", required=False)
+    # photo = CloudinaryJsFileField()
 
     # user
 
@@ -164,3 +168,12 @@ class PropertyForm(forms.Form):
         out['user'] = self.user
         p = Property.objects.create(**out)
         p.save()
+
+
+class PhotoDirectForm(PropertyForm):
+    photo = CloudinaryJsFileField()
+
+
+class PhotoUnsignedDirectForm(PropertyForm):
+    upload_preset_name = "sample_" + hashlib.sha1(to_bytes(cloudinary.config().api_key + cloudinary.config().api_secret)).hexdigest()[0:10]
+    photo = CloudinaryUnsignedJsFileField(upload_preset_name)

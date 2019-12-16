@@ -5,9 +5,10 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from .models import OperationType, PropertyType, State, Province, Location, Property, PropertyPics
 
-
-from .forms import LoginForm, RegisterForm, ChangePasswordForm, PropertyForm
-
+from .forms import LoginForm, RegisterForm, ChangePasswordForm, PropertyForm, PhotoDirectForm, PhotoUnsignedDirectForm
+# -- Cloudinary
+from cloudinary import api
+from cloudinary.forms import cl_init_js_callbacks
 
 #from slugify import slugify
 
@@ -65,6 +66,33 @@ def submit(request):
 
 @login_required
 def publicarAnuncio(request):
+
+    """
+    # Cloudinary -------------------------------------------------------------------------------------------------------
+    unsigned = request.GET.get("unsigned") == "true"
+    if (unsigned):
+        try:
+            api.upload_preset(PhotoUnsignedDirectForm.upload_preset_name)
+        except api.NotFound:
+            api.create_upload_preset(name=PhotoUnsignedDirectForm.upload_preset_name, unsigned=True,
+                                     folder="preset_folder")
+
+    direct_form = PhotoUnsignedDirectForm() if unsigned else PhotoDirectForm()
+    context = dict(
+        # Form demonstrating backend upload
+        backend_form=PropertyForm(),
+        # Form demonstrating direct upload
+        direct_form=direct_form,
+        # Should the upload form be unsigned
+        unsigned=unsigned,
+    )
+    # When using direct upload - the following call is necessary to update the
+    # form's callback url
+    cl_init_js_callbacks(context['direct_form'], request)
+
+     Cloudinary END ---------------------------------------------------------------------------------------------------
+    """
+
     if request.method == 'POST':
         form = PropertyForm(request.user, request.POST, request.FILES)
         if form.is_valid():
