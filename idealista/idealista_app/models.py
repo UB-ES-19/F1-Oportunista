@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 '''
 ----------------------------------------------
@@ -79,10 +80,15 @@ class Property(models.Model):
     city = models.ForeignKey(Location, on_delete=models.DO_NOTHING)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=9)
-    photo = models.ImageField(upload_to='posts/images/')
+    photo = models.ImageField(upload_to='media/images/')
+    # photo = CloudinaryField('image')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+
+    '''def get_cloudinary_url(self):
+        return self.photo.url
+    '''
 
     def __str__(self):
         return self.name + ' (' + self.city.name + ')'
