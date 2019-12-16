@@ -67,7 +67,8 @@ def submit(request):
 @login_required
 def publicarAnuncio(request):
 
-    ''' # Cloudinary -------------------------------------------------------------------------------------------------------
+    """
+    # Cloudinary -------------------------------------------------------------------------------------------------------
     unsigned = request.GET.get("unsigned") == "true"
     if (unsigned):
         try:
@@ -90,17 +91,14 @@ def publicarAnuncio(request):
     cl_init_js_callbacks(context['direct_form'], request)
 
      Cloudinary END ---------------------------------------------------------------------------------------------------
-    '''
+    """
 
     if request.method == 'POST':
         form = PropertyForm(request.user, request.POST, request.FILES)
-        print('Hemos entrado')
         if form.is_valid():
             form.save()
-            print('Form valido')
             return redirect('idealista_app:homePage')
         else:
-            print('Form no valido')
             pass  # print(form.errors)
     else:
         print('No es POST')
