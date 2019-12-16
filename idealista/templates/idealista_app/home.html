@@ -78,7 +78,9 @@
       <div class="row">
         <!-- transparent url('../../static/img/imgcasa2.png') no-repeat center center /cover; height: 500px; -->
         <div class="col">
+
           <select id="primer" class="custom-select rounded-0" multiple style="height: 240px;">
+
             {% for type in type_properties %}
             <option>{{type.name}}</option>
             {% endfor %}
@@ -86,7 +88,9 @@
         </div>
 
         <div class="col">
+
           <select id="segon" class="custom-select rounded-0" multiple style="height: 240px;">
+
             {% for state in states %}
             <option>{{state.name}}</option>
             {% endfor %}
@@ -95,7 +99,9 @@
       </div>
       <div class="row py-2 px-1 justify-content-end">
         <div class="col-4">
+
           <a class="btn btn-secondary btn-block rounded-0" type="submit" onclick="redirect(this)">
+
             <strong>
               Buscar
             </strong>
