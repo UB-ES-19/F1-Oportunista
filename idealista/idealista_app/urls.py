@@ -48,7 +48,7 @@ urlpatterns = [
         view=views.myposts,
         name='myposts'
     ),
-    path(r'posts/<slug:type>/<state>/', views.posts, name='posts'),
-    path(r'posts/<slug:type>/<state>/<province>/', views.posts, name='posts'),
-    path(r'posts/<slug:type>/<state>/<province>/<location>/', views.posts, name='posts'),
+    path(r'posts/<slug:operation>/<slug:type>/<state>/', views.posts, name='posts'),
+    path(r'posts/<slug:operation>/<slug:type>/<state>/<province>/', views.posts, name='posts'),
+    path(r'posts/<slug:operation>/<slug:type>/<state>/<province>/<location>/', views.posts, name='posts'),
 ]

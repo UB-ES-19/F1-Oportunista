@@ -50,7 +50,6 @@
         <li class="nav-item" href="#">
           <select class="form-control">
             <option data-content='<span class="flag-icon flag-icon-us"></span> Español'>Español</option>
-            <option data-content='<span class="flag-icon flag-icon-mx"></span> English'>English</option>
           </select>
         </li>
         {% endif %}
@@ -77,11 +76,10 @@
       </div>
       <div class="row">
         <!-- transparent url('../../static/img/imgcasa2.png') no-repeat center center /cover; height: 500px; -->
+
         <div class="col">
-
           <select id="primer" class="custom-select rounded-0" multiple style="height: 240px;">
-
-            {% for type in type_properties %}
+            {% for type in type_operations %}
             <option>{{type.name}}</option>
             {% endfor %}
           </select>
@@ -90,7 +88,15 @@
         <div class="col">
 
           <select id="segon" class="custom-select rounded-0" multiple style="height: 240px;">
+            {% for type in type_properties %}
+            <option>{{type.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
 
+        <div class="col">
+
+          <select id="tercer" class="custom-select rounded-0" multiple style="height: 240px;">
             {% for state in states %}
             <option>{{state.name}}</option>
             {% endfor %}
@@ -207,7 +213,8 @@
     function redirect(that){
       var field1ST= document.getElementById('primer').value;
       var fiell2ND= document.getElementById('segon').value;
-      window.location.replace("/posts"+"/"+field1ST.toLowerCase()+"/"+fiell2ND.toLowerCase());
+      var fiell3RD= document.getElementById('tercer').value;
+      window.location.replace("/posts"+"/"+field1ST.toLowerCase()+"/"+fiell2ND.toLowerCase()+"/"+fiell3RD.toLowerCase());
    
     }
 
