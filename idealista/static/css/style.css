@@ -4562,12 +4562,12 @@ button.bg-primary:focus {
   background-color: #dbef52 !important; }
 
 .bg-secondary {
-  background-color: #a8367f !important; }
+  background-color: #fcf8e3 !important; }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
 button.bg-secondary:focus {
-  background-color: #812a62 !important; }
+  background-color: #272727 !important; }
 
 .bg-success {
   background-color: #28a745 !important; }
@@ -4604,13 +4604,18 @@ button.bg-danger:focus {
 .bg-light {
   background-color: #f8f9fa !important; }
 
+  
 a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
   background-color: #dae0e5 !important; }
 
+  .bg-encuadro{
+    background-color: #fd7e14 !important;
+  }
+  a.bg-encuadro:hover, a.bg-encuadro:focus
 .bg-dark {
-  background-color: #343a40 !important; }
+  background-color: #6c757d !important; }
 
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'idealista_app.apps.IdealistaAppConfig',
-    'widget_tweaks'
+    'widget_tweaks',
+    'cloudinary',
 ]
 
 
@@ -129,6 +130,16 @@ TEMPLATE_DIRS = (
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+CLOUDINARY = {
+    'cloud_name': 'es-oportunista-2019',
+    'api_key': '133264742171244',
+    'api_secret': '5BNtS24UGPNySGEhy2YnrO_PTxU',
+}
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
