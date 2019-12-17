@@ -172,17 +172,17 @@ def posts(request, operation="", type="", state="", province="", location=""):
                 path += '/'+province
                 if location:
                     ads = Property.objects.filter(
-                        pro_type__acr=type, city__acr=location)
+                        op_type__acr=operation, pro_type__acr=type, city__acr=location)
                     level = Location.objects.get(acr=location)
                     path += '/'+location
                 else:
                     ads = Property.objects.filter(
-                        pro_type__acr=type, city__province__acr=province)
+                        op_type__acr=operation, pro_type__acr=type, city__province__acr=province)
                     locations = Location.objects.filter(province__acr=province)
                     level = Province.objects.get(acr=province)
             else:
                 ads = Property.objects.filter(
-                    pro_type__acr=type, city__province__state__acr=state)
+                    op_type__acr=operation, pro_type__acr=type, city__province__state__acr=state)
                 locations = Province.objects.filter(state__acr=state)
                 level = State.objects.get(acr=state)
         else:
