@@ -9,7 +9,7 @@ from .models import OperationType, PropertyType, State, Province, Location, Prop
 from .forms import LoginForm, RegisterForm, ChangePasswordForm, PropertyForm
 
 
-#from slugify import slugify
+# from slugify import slugify
 
 from .dummies import add_user, users
 
@@ -39,7 +39,27 @@ def register_user(request):
     return render(request, 'idealista_app/register.html', {'form': form})
 
 
+def get_posts(request, operation, type, state):
+    if state:
+        path = '/'.join([operation, type, state])
+        state = State.objects.get(name=state)
+        t = PropertyType.objects.filter(name=type).first()
+        ads = Property.objects.filter(
+            pro_type=t, city__province__state=state)
+        locations = Province.objects.filter(state=state)
+
+        context = {
+            'posts': ads,
+            'locations': locations,
+            'level': state,
+            'path': path,
+        }
+        print(context)
+        return render(request, 'idealista_app/buscar-publicaciones.html', context)
+
+
 def homePage(request):
+
     if request.method == 'GET':
         type_operation = OperationType.objects.filter(id__gt=0)
         type_properties = PropertyType.objects.filter(id__gt=0)
@@ -50,8 +70,8 @@ def homePage(request):
             'states': states,
         }
         return render(request, 'idealista_app/home.html', context)
-    else:
-        return render(request, 'idealista_app/home.html')
+    elif request.method == 'POST':
+        return get_posts(request, operation=request.POST['op'], type=request.POST['tipo'], state=request.POST['comunidad'])
 
 
 def logout(request):
@@ -123,6 +143,9 @@ def myposts(request):
         return render(request, 'idealista_app/profile/profile.html')
 
 
+def buscar_post(request):
+    print('aaa')
+    return render(request, 'idealista_app/profile/profile.html')
 
 
 def posts(request, operation="", type="", state="", province="", location=""):
@@ -167,6 +190,6 @@ def posts(request, operation="", type="", state="", province="", location=""):
 # propietat= objects.filter(propietat)
 # for p in propietat:
     # foto = objects.filter(propierty=p)
-    #t (p, foto)
+    # t (p, foto)
     # l.append(t)
 # context =
