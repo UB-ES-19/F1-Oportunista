@@ -69,72 +69,33 @@
     </div>
   </nav>
 
-    <div style="background:  no-repeat center top url({% static "img/casaBackground.jpg" %}) ;">
-  <div class=" container max-width-540 py-5">
+  <div class="py-5 px-5" style="text-justify: auto;">
 
-    <form class="bg-primary px-2 ">
-      <div class="row pt-3 px-2 justify-content-center">
-        <h2>Haz caso a tu intuición</h2>
-      </div>
-      <div class="row">
-        <!-- transparent url('../../static/img/imgcasa2.png') no-repeat center center /cover; height: 500px; -->
-        <div class="col">
-          <select class="custom-select rounded-0" multiple style="height: 240px;">
-            {% for type in type_properties %}
-            <option>{{type.name}}</option>
-            {% endfor %}
-          </select>
-        </div>
+  Somos un grupo de cinco estudiantes de la Universidad de Barcelona que estamos cursando la asignatura de cuarto curso de Ingenieria del Software. <br>
+  <br>
+  Hemos creado una página web donde podras buscar todo tipo de viviendas a tu gusto y medida, toda la página esta hecha para tu mayor comodidad y confort, donde te sientas agusto a la hora de buscar y publicar sus viviendas para vender.<br>
+  En esta página web encontraras tu piso ideal y con una oportunidad única de encontrarlo con un précio a tu medida.
+  <br>
+  Si lo que estas pensando es en vender también somos tu plataforma, con nuestro fácil sistema de publicacion tu anuncio estara en la página web con la máxima presteza, ¡Tu eliges el precio, tu eliges al comprador, tu nos eliges,tu ganas!
+  <br>
+  <br>
+  <br>
 
-        <div class="col">
-          <select class="custom-select rounded-0" multiple style="height: 240px;">
-            {% for state in states %}
-            <option>{{state.name}}</option>
-            {% endfor %}
-          </select>
-        </div>
-      </div>
-      <div class="row py-2 px-1 justify-content-end">
-        <div class="col-4">
-          <a href="{% url 'idealista_app:homePage' %}"class="btn btn-secondary btn-block rounded-0">
-            <strong>
-              Buscar
-            </strong>
-          </a>
-        </div>
+  <center>
+    <h4><strong>¡Nunca comprar y vender pisos habia sido tan fácil! Si lo quieres, esta en Oportunista</strong></h4>
+  </center>
+  <br>
+  <br>
+  <br>
+  <br>
+  Esta página sigue en desarollo por lo tanto cualquier error que se encuentre estariamos agradecidos de que nos enviaseis un ticket al correo <strong>sergio.agruna@gmail.com</strong>
+  </div>
+  <div>
+<br>
+  <center><img src="{% static "img/UB.jpg" %}"  class="d-inline-block" style="text-align: center;" alt="Responsive image"></center> 
+  
+  </div>
 
-      </div>
-
-    </form>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-   
-    <div class="bg bg-light row py-5 px-3">
-      <div class="col-6">
-        <div class="row">
-          <h5> <strong>1.767.221 anuncios,<br> 20.120 nuevos ayer</strong></h5>
-        </div>
-
-        <div class="row">
-          Tus dos primeros anuncios son gratis
-        </div>
-
-      </div>
-      <div class="col-4">
-        <div class="row">
-          <a class="btn btn-secondary btn-block rounded-0" href="{% url 'idealista_app:publicarAnuncio' %}">
-         
-            <strong>Poner anuncio</strong>
-       
-        </a>
-        </div>
-
-      </div>
-     
-    </div>
 
     <!-- not so secret secrets 
     <div class="bg bg-light row py-2 px-3">
@@ -187,23 +148,11 @@
       </form>
     </div>
     //-->
-  </div>
-  </div>
-
-  </div>
-</div>
+ 
 
   <footer class=" bg bg-light d-flex flex-column footer font-small">
     <div class="footer-copyright text-center py-3 bg-light ">
-     
-      <p class="text-muted">
-        <b>Sobre oportunista</b>
-    </p>
-
-    <ul class="list-unstyled">
-        <li><a href="{% url 'idealista_app:quienessomos' %}" class="text-info"> Quiénes somos</a></li>
-    </ul>
-    <a>Oportunista Copyright &copy; 2019-2019</a>
+      <a>Oportunista Copyright &copy; 2019-2019</a>
     </div>
   </footer>
 

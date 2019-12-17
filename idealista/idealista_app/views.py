@@ -150,6 +150,9 @@ def posts(request, type="", state="", province="", location=""):
     else:
         homePage(request)
 
+def quienessomos(request):
+      return render(request,'idealista_app/quienesSomos.html')
+
 
 # l=[]
 # propietat= objects.filter(propietat)
