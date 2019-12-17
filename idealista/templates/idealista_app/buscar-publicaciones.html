@@ -76,7 +76,7 @@
 
              <div class="col-6">
                  {% for post in posts %}
-                 <a href="{% url 'idealista_app:homePage' %}" class="text-info">{{post.name}}</a>
+                 <a href="/placeholder/{{post.id}}/" class="text-info">{{post.name}}</a>
                  <br>
                  <img src="{% static "img/casa_prefabricada.jpg" %}" width="500px">    {{post.city.name}}
                  <br>

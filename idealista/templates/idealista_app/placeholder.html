@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
-
+{% extends 'idealista_app/base.html' %}
+{% block content %}
+{% load widget_tweaks %}
 <head>
   <meta charset="utf-8">
   {% load static %}
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://kit.fontawesome.com/8593a80e63.js" crossorigin="anonymous"></script>
 </head>
 
 <body >
-    <div>
-      https://github.com/Sergihttps://github.com/SergioUB/SOIIUB.gitoUB/SOIIUB.githttps://github.com/SergioUB/SOIIUB.git
-        <div class="footer-copyright text-left py-1 bg-idealista">
-                <img src="{% static "img/logo.svg" %}" width="300px">
-        </div>
-    </div>
     <div class="footer-copyright text-left py-1 bg-">
-             
-            <a href="#" class="text-info"> <strong><< Volver al listado de resultados</strong></a>
             
         </div>
     <div class="container" style="margin-left:200px;">
@@ -35,45 +28,51 @@
       <br>
        
         <form class="border bg-light"> 
-        <h3><strong>Piso en venta en avenida Barcelona</strong></h3>
-        <p>Peñamefercit- Avda Barcelona, Jaén </p>
-        <p><strong>49.000€</strong></p>
-        70 m² &nbsp | &nbsp 3 hab  2ª planta sin ascensor <br>
+        <h3><strong>{{property.name}}</strong></h3>
+        <p>{{property.address}} {{property.address_number}}, {{property.city.name}} </p>
+        <p><strong>{{property.price}}€</strong></p>
+        {{property.m_build}} m² &nbsp | &nbsp {{property.rooms}} hab  {{property.floor}}ª planta <br>
         <br>
 
-        <button type="button" class="btnideal btn-default" style="width: 200px;"><strong><span class="glyphicon glyphicon-heart"style="color:red"></span> Guardar favorito</strong></button>
         <p><h4><strong>Comentario del anunciante</strong></h4></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pretium, est nec dictum laoreet, tellus purus blandit ex, vel scelerisque neque nunc nec sem. Nullam suscipit sapien eget justo sagittis convallis. Ut tempus ornare imperdiet. Morbi eget arcu ullamcorper, convallis urna sed, mollis arcu. Vivamus non ipsum venenatis risus rutrum placerat eget eu dolor. Etiam vitae est neque. Donec semper sapien quis velit laoreet vehicula. Donec pharetra efficitur magna non tempus. Maecenas massa ante, vulputate in velit ut, eleifend molestie massa. Donec eu eros eget enim ultricies placerat vel eu lacus. Donec vel justo tempor, volutpat ex bibendum, fringilla lectus. Cras at posuere nisi. Morbi aliquam ullamcorper laoreet.</p>
+        <p>{{property.description}}</p>
 
         <div class="row">
         <div class="col-4">
           <h4><strong>Características básicas</strong></h4>
-          <p>70 m² construidos</p>
-          <p>3 habitaciones</p>
-          <p>1 baño</p>
+          <p>{{property.m_use}} m² construidos</p>
+          <p>{{property.rooms}} habitacion/es</p>
+          <p>{{property.bath}} baño/s</p>
           
         </div>
         <div class="col-4">
           <h4><strong>Edificio</strong></h4>
-          <p>Planta 2ª</p>
-          <p>Sin ascensor</p>
+            {% if property.floor > 0 %}
+          <p>Planta {{property.floor}}</p>
+            {% endif %}
+            {% if property.door > 0 %}
+            <p>Puerta {{property.door}}</p>
+            {% endif %}
+            {% if property.has_elevator > 0 %}
+            {{property.has_elevator}}
+            <p>Tiene ascensor</p>
+            {% else %}
+            <p>Sin ascensor</p>
+            {% endif %}
+            {% if propertuy.is_exterior > 0 %}
+            <p>Exterior</p>
+            {% else %}
+            <p>Interior</p>
+            {% endif %}
         </div>  
         </div>
         </form>
       </div>
        <div class="margin-left col-4">
          <form class="bg-light">
-           <h4><strong>Gracias por confiar en nosotros</strong></h4>
-
-           <p>Esperando ideas para añadir a este campo</p>
-           <p>
-             <button class="btn btn-secondary btn-block rounded-0" type="submit" value="enviar">
-            Boton de prueba
-             </button>
-
-            <img src="{% static "img/logo.svg" %}" width="300px">
-        </button>
-
+           <h4><strong>Datos de contacto</strong></h4>
+             <p>Propietario: <strong>{{property.user.first_name}}</strong></p>
+             <p>Tel. <strong>{{property.phone}}</strong></p>
 
          </form>
        </div>
@@ -91,7 +90,7 @@
       </div>
     </footer>
   </body>
-  
+{% endblock %}
 
 
 </html>

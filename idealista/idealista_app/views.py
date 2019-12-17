@@ -18,8 +18,16 @@ from .dummies import add_user, users
 # Create your views here.
 
 
-def placeholder(request):
-    return render(request, 'idealista_app/placeholder.html')
+def placeholder(request, id=""):
+    if request.method == 'GET':
+        property = Property.objects.get(
+                    id__icontains=id)
+        context = {
+            'property': property,
+        }
+        return render(request, 'idealista_app/placeholder.html', context)
+    else:
+        homePage(request)
 
 
 def register_user(request):
