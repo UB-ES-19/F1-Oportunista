@@ -5,10 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from .models import OperationType, PropertyType, State, Province, Location, Property, PropertyPics
 
-from .forms import LoginForm, RegisterForm, ChangePasswordForm, PropertyForm, PhotoDirectForm, PhotoUnsignedDirectForm
-# -- Cloudinary
-from cloudinary import api
-from cloudinary.forms import cl_init_js_callbacks
+from .forms import LoginForm, RegisterForm, ChangePasswordForm, PropertyForm
 
 # from slugify import slugify
 
@@ -50,12 +47,14 @@ def register_user(request):
 
 def get_posts(request, operation, type, state):
     if state:
-        path = '/'.join([operation, type, state])
         state = State.objects.get(name=state)
-        t = PropertyType.objects.filter(name=type).first()
+        type = PropertyType.objects.get(name=type)
+        operation = OperationType.objects.get(name=operation)
+        # t = PropertyType.objects.filter(name=type).first()
         ads = Property.objects.filter(
-            pro_type=t, city__province__state=state)
+            op_type=operation, pro_type=type, city__province__state=state)
         locations = Province.objects.filter(state=state)
+        path = '/'.join([operation.acr, type.acr, state.acr])
 
         context = {
             'posts': ads,
@@ -63,7 +62,6 @@ def get_posts(request, operation, type, state):
             'level': state,
             'path': path,
         }
-        print(context)
         return render(request, 'idealista_app/buscar-publicaciones.html', context)
 
 
