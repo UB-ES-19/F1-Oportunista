@@ -42,7 +42,7 @@ def register_user(request):
                 auth.login(request, user)
                 return redirect('idealista_app:homePage')
             else:
-                return HttpResponse('Unauthorized', status=401)
+                return HttpResponseRedirect('idealista_app:register_user')
     else:
         form = RegisterForm()
     return render(request, 'idealista_app/register.html', {'form': form})
@@ -124,7 +124,7 @@ def login(request):
                 auth.login(request, user)
                 return redirect('idealista_app:homePage')
             else:
-                return HttpResponse('Unauthorized', status=401)
+                return HttpResponseRedirect('idealista_app:login')
     else:
         form = LoginForm()
 
