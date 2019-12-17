@@ -3,7 +3,7 @@ Idealista project's repository
 
 # How to use docker
 
-### Requirements
+### Requirements
 
 + docker
 + docker-compose
@@ -37,4 +37,12 @@ Examples:
 ```bash
 docker-compose run web python idealista/manage.py migrate # migrate database
 docker-compose run web python idealista/manage.py makeassets # build assets
+```
+
+### Stop server
+
+Use
+
+```bash
+docker-compose down
 ```
