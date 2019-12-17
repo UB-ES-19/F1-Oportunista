@@ -161,13 +161,13 @@ def myposts(request):
 
 
 
-def posts(request, type="", state="", province="", location=""):
+def posts(request, operation="", type="", state="", province="", location=""):
     if request.method == 'GET':
         if state:
             ads = ""
             locations = ""
             level = ""
-            path = state
+            path = operation + '/' + type + '/' + state
             if province:
                 path += '/'+province
                 if location:
