@@ -85,18 +85,6 @@
 
             <div class="col-1">
 
-             <div class="col-6">
-                 {% for post in posts %}
-                 <a href="/placeholder/{{post.id}}/" class="text-info">{{post.name}}</a>
-                 <br>
-                 <img src="{% static "img/casa_prefabricada.jpg" %}" width="500px">    {{post.city.name}}
-                 <br>
-                 <strong>{m2}</strong>   <strong>{{post.price}}</strong>
-                 <br>
-                 <br>
-                 {% empty %}
-                 <strong>No hay inmuebles en la localidad indicada</strong>
-                 {% endfor %}
             </div>
 
             <div class="col-7">
