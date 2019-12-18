@@ -120,7 +120,6 @@ class PropertyForm(forms.Form):
         label='Número de teléfono*', max_value=999999999, min_value=600000000)
 
     photo = forms.ImageField(label="Foto del inmueble", required=False)
-    # photo = CloudinaryJsFileField()
 
     # user
 
@@ -168,12 +167,3 @@ class PropertyForm(forms.Form):
         out['user'] = self.user
         p = Property.objects.create(**out)
         p.save()
-
-
-class PhotoDirectForm(PropertyForm):
-    photo = CloudinaryJsFileField()
-
-
-class PhotoUnsignedDirectForm(PropertyForm):
-    upload_preset_name = "sample_" + hashlib.sha1(to_bytes(cloudinary.config().api_key + cloudinary.config().api_secret)).hexdigest()[0:10]
-    photo = CloudinaryUnsignedJsFileField(upload_preset_name)
