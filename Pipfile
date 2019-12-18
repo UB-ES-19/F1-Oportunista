@@ -9,6 +9,8 @@ mypy = "*"
 [packages]
 django = "==2.2.5"
 django-widget-tweaks = "*"
+cloudinary = "*"
+pillow = "*"
 
 [requires]
 

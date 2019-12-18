@@ -1,0 +1,54 @@
+{% extends 'idealista_app/base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <p><h3>Tus anuncios</h3></p>
+    <br>
+    <br>
+    <div class="container">
+
+        {% for propietat in properties_user %}
+        <form method="POST" class="bg-light px-1">
+            {% csrf_token %}
+         <br>
+         <br>
+
+          <div class="row">
+            <!-- transparent url('../../static/img/imgcasa2.png') no-repeat center center /cover; height: 500px; -->
+            <div class="col-12">
+
+                    <img src="{% static "img/casa_prefabricada.jpg" %}" width="500px"><br>
+                    <br>
+            </div>
+
+            <br>
+          <div class="col-4">
+              <strong>{{propietat.name}}</strong>
+                <br>
+                <br>
+                {{propietat.description}}
+                <br>
+                <br>
+                Con {{propietat.rooms}} habitaciones y {{propietat.bath}} baños
+                <br>
+                <br>
+                <strong>Inmueble en</strong> {{propietat.address}} numero {{propietat.address_number}}, {{propietat.city.name}}
+                <br>
+                <br>
+                <br>
+                Por {{propietat.price}}€
+                <div class="col-12" style="left: 100px;">
+                  <button class="btn btn-danger"name="deletePost" style="margin-left: 350px;" value={{propietat.id}}>Eliminar post <span class="glyphicon glyphicon-remove-circle"></span></button>
+                <br>
+                <br>
+                <br>
+                </div>
+            </div>
+  
+            
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}

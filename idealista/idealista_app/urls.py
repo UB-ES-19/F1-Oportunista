@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -28,28 +29,31 @@ urlpatterns = [
         name='logout'
     ),
     url(
-        regex=r'^placeholder/',
-        view=views.placeholder,
-        name='placeholder'
-    ),
-    url(
         regex=r'^publicar-anuncio/',
         view=views.publicarAnuncio,
         name='publicarAnuncio'
-    ),
-    url(
-        regex=r'^publicar-anuncio2/',
-        view=views.publicarAnuncio2,
-        name='publicarAnuncio2'
-    ),
-    url(
-        regex=r'^publicar-anuncio3/',
-        view=views.publicarAnuncio3,
-        name='publicarAnuncio3'
     ),
     url(
         regex=r'^profile/',
         view=views.profile,
         name='profile'
     ),
+    url(
+        regex=r'^myposts',
+        view=views.myposts,
+        name='myposts'
+    ),
+
+    url(
+        regex=r'^quienessomos',
+        view=views.quienessomos,
+        name='quienessomos'
+
+    ),
+  
+    path(r'posts/<slug:operation>/<slug:type>/<state>/', views.posts, name='posts'),
+    path(r'posts/<slug:operation>/<slug:type>/<state>/<province>/', views.posts, name='posts'),
+    path(r'posts/<slug:operation>/<slug:type>/<state>/<province>/<location>/', views.posts, name='posts'),
+    path(r'placeholder/<id>/', views.placeholder, name='placeholder'),
+
 ]
